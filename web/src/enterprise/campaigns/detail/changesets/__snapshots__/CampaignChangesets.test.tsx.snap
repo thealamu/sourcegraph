@@ -2,130 +2,7 @@
 
 exports[`CampaignChangesets renders 1`] = `
 <Fragment>
-  <div
-    className="form-inline mb-0 mt-2"
-  >
-    <label
-      htmlFor="changeset-state-filter"
-    >
-      State
-    </label>
-    <select
-      className="form-control mx-2"
-      id="changeset-state-filter"
-      onChange={[Function]}
-    >
-      <option
-        value=""
-      >
-        All
-      </option>
-      <option
-        key="UNPUBLISHED"
-        value="UNPUBLISHED"
-      >
-        Unpublished
-      </option>
-      <option
-        key="PUBLISHING"
-        value="PUBLISHING"
-      >
-        Publishing
-      </option>
-      <option
-        key="ERRORED"
-        value="ERRORED"
-      >
-        Errored
-      </option>
-      <option
-        key="SYNCED"
-        value="SYNCED"
-      >
-        Synced
-      </option>
-    </select>
-    <label
-      htmlFor="changeset-review-state-filter"
-    >
-      Review state
-    </label>
-    <select
-      className="form-control mx-2"
-      id="changeset-review-state-filter"
-      onChange={[Function]}
-    >
-      <option
-        value=""
-      >
-        All
-      </option>
-      <option
-        key="APPROVED"
-        value="APPROVED"
-      >
-        Approved
-      </option>
-      <option
-        key="CHANGES_REQUESTED"
-        value="CHANGES_REQUESTED"
-      >
-        Changes requested
-      </option>
-      <option
-        key="PENDING"
-        value="PENDING"
-      >
-        Pending
-      </option>
-      <option
-        key="COMMENTED"
-        value="COMMENTED"
-      >
-        Commented
-      </option>
-      <option
-        key="DISMISSED"
-        value="DISMISSED"
-      >
-        Dismissed
-      </option>
-    </select>
-    <label
-      htmlFor="changeset-check-state-filter"
-    >
-      Check state
-    </label>
-    <select
-      className="form-control mx-2"
-      id="changeset-check-state-filter"
-      onChange={[Function]}
-    >
-      <option
-        value=""
-      >
-        All
-      </option>
-      <option
-        key="PENDING"
-        value="PENDING"
-      >
-        Pending
-      </option>
-      <option
-        key="PASSED"
-        value="PASSED"
-      >
-        Passed
-      </option>
-      <option
-        key="FAILED"
-        value="FAILED"
-      >
-        Failed
-      </option>
-    </select>
-  </div>
+  <ChangesetFiltersRow />
   <div
     className="list-group position-relative"
   >
@@ -157,13 +34,13 @@ exports[`CampaignChangesets renders 1`] = `
           "history": "[History]",
           "isLightTheme": true,
           "location": "[Location path=/]",
-          "viewerCanAdminister": true,
+          "viewerCanAdminister": undefined,
         }
       }
       noun="changeset"
       pluralNoun="changesets"
       queryConnection={[Function]}
-      useURLQuery={false}
+      useURLQuery={true}
     />
   </div>
 </Fragment>

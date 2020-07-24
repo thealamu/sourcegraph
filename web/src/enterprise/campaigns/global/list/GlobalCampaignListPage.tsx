@@ -74,7 +74,7 @@ export const GlobalCampaignListPage: React.FunctionComponent<Props> = ({
             <FilteredConnection<CampaignNodeCampaign, Omit<CampaignNodeProps, 'node'>>
                 {...props}
                 nodeComponent={CampaignNode}
-                nodeComponentProps={{ history: props.history }}
+                nodeComponentProps={{ history: props.history, displayNamespace: true }}
                 queryConnection={queryCampaigns}
                 hideSearch={true}
                 filters={FILTERS}
