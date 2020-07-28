@@ -5,6 +5,7 @@ import { Link } from '../../../../../shared/src/components/Link'
 
 interface Props {
     campaign: Pick<GQL.ICampaign, 'name' | 'closedAt' | 'viewerCanAdminister'> & {
+        namespace: Pick<GQL.ICampaign['namespace'], 'displayName'>
         changesets: {
             totalCount: GQL.ICampaign['changesets']['totalCount']
             stats: Pick<GQL.ICampaign['changesets']['stats'], 'total' | 'closed' | 'merged'>
@@ -15,17 +16,20 @@ interface Props {
 export const CampaignActionsBar: React.FunctionComponent<Props> = ({ campaign }) => {
     const campaignClosed = !!campaign.closedAt
 
-    // const percentComplete = (
-    //     (((campaign.changesets.stats.closed as number) + (campaign.changesets.stats.merged as number)) /
-    //         campaign.changesets.stats.total) *
-    //     100
-    // ).toFixed(0)
+    const percentComplete = (
+        ((campaign.changesets.stats.closed + campaign.changesets.stats.merged) / campaign.changesets.stats.total) *
+        100
+    ).toFixed(0)
 
     return (
         <>
             <div className="mb-2">
                 <span>
                     <Link to="/campaigns">Campaigns</Link>
+                </span>
+                <span className="text-muted d-inline-block mx-1">/</span>
+                <span>
+                    <Link to="/campaigns">{campaign.namespace.displayName}</Link>
                 </span>
                 <span className="text-muted d-inline-block mx-1">/</span>
                 <span>{campaign.name}</span>
@@ -36,7 +40,7 @@ export const CampaignActionsBar: React.FunctionComponent<Props> = ({ campaign })
                     <div>
                         <CampaignStateBadge isClosed={campaignClosed} />
                         <small className="text-muted">
-                            {0}% complete. {campaign.changesets.totalCount} changesets total
+                            {percentComplete}% complete. {campaign.changesets.totalCount} changesets total
                         </small>
                     </div>
                 </div>

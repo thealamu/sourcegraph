@@ -21,7 +21,10 @@ const { add } = storiesOf('web/campaigns/CampaignActionsBar', module).addDecorat
 add('Bar', () => (
     <CampaignActionsBar
         campaign={{
-            name: 'Awesome campaign',
+            name: 'sourcegraph-prettier',
+            namespace: {
+                displayName: 'alice',
+            },
             closedAt: boolean('Closed', false) ? new Date().toISOString() : null,
             viewerCanAdminister: boolean('viewerCanAdminister', false),
             changesets: {

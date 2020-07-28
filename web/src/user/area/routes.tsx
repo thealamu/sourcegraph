@@ -6,6 +6,10 @@ import { UserAreaRoute } from './UserArea'
 
 const UserSettingsArea = lazyComponent(() => import('../settings/UserSettingsArea'), 'UserSettingsArea')
 const UserEventLogsPage = lazyComponent(() => import('../UserEventLogsPage'), 'UserEventLogsPage')
+const GlobalCampaignsArea = lazyComponent(
+    () => import('../../enterprise/campaigns/global/GlobalCampaignsArea'),
+    'GlobalCampaignsArea'
+)
 
 export const userAreaRoutes: readonly UserAreaRoute[] = [
     {
@@ -33,5 +37,9 @@ export const userAreaRoutes: readonly UserAreaRoute[] = [
     {
         path: '/event-log',
         render: props => <UserEventLogsPage {...props} />,
+    },
+    {
+        path: '/campaigns',
+        render: props => <GlobalCampaignsArea {...props} />,
     },
 ]

@@ -2,6 +2,7 @@ import FeatureSearchOutlineIcon from 'mdi-react/FeatureSearchOutlineIcon'
 import SettingsIcon from 'mdi-react/SettingsIcon'
 import TimelineTextOutlineIcon from 'mdi-react/TimelineTextOutlineIcon'
 import { UserAreaHeaderNavItem } from './UserAreaHeader'
+import { CampaignsIcon } from '../../enterprise/campaigns/icons'
 
 export const userAreaHeaderNavItems: readonly UserAreaHeaderNavItem[] = [
     {
@@ -26,5 +27,11 @@ export const userAreaHeaderNavItems: readonly UserAreaHeaderNavItem[] = [
         label: 'Event log',
         icon: TimelineTextOutlineIcon,
         condition: ({ user: { viewerCanAdminister } }) => viewerCanAdminister,
+    },
+    {
+        to: '/campaigns',
+        label: 'Campaigns',
+        icon: CampaignsIcon,
+        // condition: ({ user: { viewerCanAdminister } }) => viewerCanAdminister,
     },
 ]

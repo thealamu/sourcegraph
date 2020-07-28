@@ -1,87 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CampaignDetails creation form for empty manual campaign 1`] = `
-<HeroPage
-  icon={
-    Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": [Function],
-    }
-  }
-  title="Campaign not found"
-/>
-`;
-
-exports[`CampaignDetails creation form given existing patch set 1`] = `
-<CampaignDetails
-  authenticatedUser={
-    Object {
-      "avatarURL": null,
-      "id": "a",
-      "username": "alice",
-    }
-  }
-  history="[History]"
-  isLightTheme={true}
-  location="[Location path=/?patchSet=p]"
-  telemetryService={
-    Object {
-      "log": [Function],
-      "logViewEvent": [Function],
-    }
-  }
->
-  <HeroPage
-    icon={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "compare": null,
-        "type": [Function],
-      }
-    }
-    title="Campaign not found"
-  >
-    <div
-      className="hero-page "
-    >
-      <div
-        className="hero-page__icon"
-      >
-        <Memo(AlertCircleIcon)>
-          <svg
-            className="mdi-icon "
-            fill="currentColor"
-            height={24}
-            viewBox="0 0 24 24"
-            width={24}
-          >
-            <path
-              d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            />
-          </svg>
-        </Memo(AlertCircleIcon)>
-      </div>
-      <div
-        className="hero-page__title"
-      >
-        Campaign not found
-      </div>
-    </div>
-  </HeroPage>
-</CampaignDetails>
-`;
-
 exports[`CampaignDetails viewerCanAdminister: false viewing existing 1`] = `
 <CampaignDetails
   _fetchCampaignById={[Function]}
-  authenticatedUser={
-    Object {
-      "avatarURL": null,
-      "id": "a",
-      "username": "alice",
-    }
-  }
   campaignID="c"
   history="[History]"
   isLightTheme={true}
@@ -187,58 +108,232 @@ exports[`CampaignDetails viewerCanAdminister: false viewing existing 1`] = `
       </div>
     </div>
   </CampaignActionsBar>
-  <div
-    className="card mt-2"
+  <CampaignInfoCard
+    author={
+      Object {
+        "username": "alice",
+      }
+    }
+    createdAt="2020-01-01"
+    description="d"
+    history="[History]"
   >
     <div
-      className="card-header"
+      className="card mt-2"
     >
-      <strong>
-        <UserAvatar
-          className="icon-inline"
-          user={
-            Object {
-              "username": "alice",
-            }
-          }
-        />
-         
-        alice
-      </strong>
-       
-      started 
-      <Timestamp
-        date="2020-01-01"
+      <div
+        className="card-header"
       >
-        <span
-          className="timestamp"
-          data-tooltip="2020-01-01"
+        <strong>
+          <UserAvatar
+            className="icon-inline"
+            user={
+              Object {
+                "username": "alice",
+              }
+            }
+          />
+           
+          alice
+        </strong>
+         
+        started 
+        <Timestamp
+          date="2020-01-01"
         >
-          in almost 14 years
-        </span>
-      </Timestamp>
-    </div>
-    <div
-      className="card-body"
-    >
-      <Markdown
-        dangerousInnerHTML="<p>d</p>
+          <span
+            className="timestamp"
+            data-tooltip="2020-01-01"
+          >
+            in almost 14 years
+          </span>
+        </Timestamp>
+      </div>
+      <div
+        className="card-body"
+      >
+        <Markdown
+          dangerousInnerHTML="<p>d</p>
 "
-        history="[History]"
+          history="[History]"
+        >
+          <div
+            className="markdown"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>d</p>
+",
+              }
+            }
+            onClick={[Function]}
+          />
+        </Markdown>
+      </div>
+    </div>
+  </CampaignInfoCard>
+  <CampaignStatsCard
+    stats={
+      Object {
+        "closed": 0,
+        "merged": 0,
+        "total": 10,
+      }
+    }
+  >
+    <div
+      className="card mt-2"
+    >
+      <div
+        className="card-body"
       >
         <div
-          className="markdown"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "<p>d</p>
-",
-            }
-          }
-          onClick={[Function]}
-        />
-      </Markdown>
+          className="d-flex justify-content-between align-items-center"
+        >
+          <div
+            className="d-flex align-items-center"
+          >
+            <h1
+              className="d-inline mb-0"
+            >
+              <Memo(ProgressCheckIcon)
+                className="icon-inline mr-2 text-muted"
+              >
+                <svg
+                  className="mdi-icon icon-inline mr-2 text-muted"
+                  fill="currentColor"
+                  height={24}
+                  viewBox="0 0 24 24"
+                  width={24}
+                >
+                  <path
+                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M15.5,8.5L10.62,13.38L8.5,11.26L7.44,12.32L10.62,15.5L16.56,9.56L15.5,8.5M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37Z"
+                  />
+                </svg>
+              </Memo(ProgressCheckIcon)>
+            </h1>
+             
+            0
+            % complete
+          </div>
+          <div
+            className="text-muted"
+          >
+            10
+             changesets total
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceBranchIcon)
+              className="icon-inline text-muted mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-muted mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z"
+                />
+              </svg>
+            </Memo(SourceBranchIcon)>
+             
+             unpublished
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceBranchIcon)
+              className="icon-inline text-success mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-success mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z"
+                />
+              </svg>
+            </Memo(SourceBranchIcon)>
+             
+             open
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceMergeIcon)
+              className="icon-inline text-merged mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-merged mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M7,3A3,3 0 0,1 10,6C10,7.29 9.19,8.39 8.04,8.81C8.58,13.81 13.08,14.77 15.19,14.96C15.61,13.81 16.71,13 18,13A3,3 0 0,1 21,16A3,3 0 0,1 18,19C16.69,19 15.57,18.16 15.16,17C10.91,16.8 9.44,15.19 8,13.39V15.17C9.17,15.58 10,16.69 10,18A3,3 0 0,1 7,21A3,3 0 0,1 4,18C4,16.69 4.83,15.58 6,15.17V8.83C4.83,8.42 4,7.31 4,6A3,3 0 0,1 7,3M7,5A1,1 0 0,0 6,6A1,1 0 0,0 7,7A1,1 0 0,0 8,6A1,1 0 0,0 7,5M7,17A1,1 0 0,0 6,18A1,1 0 0,0 7,19A1,1 0 0,0 8,18A1,1 0 0,0 7,17M18,15A1,1 0 0,0 17,16A1,1 0 0,0 18,17A1,1 0 0,0 19,16A1,1 0 0,0 18,15Z"
+                />
+              </svg>
+            </Memo(SourceMergeIcon)>
+             
+            0
+             merged
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceBranchIcon)
+              className="icon-inline text-danger mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-danger mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z"
+                />
+              </svg>
+            </Memo(SourceBranchIcon)>
+             
+            0
+             closed
+          </div>
+          <div>
+            <button
+              className="btn btn-outline-secondary mr-2"
+              type="button"
+            >
+              All changesets
+            </button>
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+            >
+              Burndown chart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-footer"
+      >
+        <small
+          className="text-muted"
+        >
+          To add a changeset to this campaign, update the campaign plan or track an existing changeset.
+        </small>
+      </div>
     </div>
-  </div>
+  </CampaignStatsCard>
   <h3
     className="mt-4 mb-2"
   >
@@ -262,38 +357,7 @@ exports[`CampaignDetails viewerCanAdminister: false viewing existing 1`] = `
     Changesets
   </h3>
   <CampaignChangesets
-    campaign={
-      Object {
-        "__typename": "Campaign",
-        "author": Object {
-          "username": "alice",
-        },
-        "branch": "awesome-branch",
-        "changesetCountsOverTime": Array [],
-        "changesets": Object {
-          "stats": Object {
-            "closed": 0,
-            "merged": 0,
-            "total": 10,
-          },
-          "totalCount": 2,
-        },
-        "closedAt": null,
-        "createdAt": "2020-01-01",
-        "description": "d",
-        "diffStat": Object {
-          "__typename": "IDiffStat",
-          "added": 5,
-          "changed": 3,
-          "deleted": 2,
-        },
-        "hasUnpublishedPatches": false,
-        "id": "c",
-        "name": "n",
-        "updatedAt": "2020-01-01",
-        "viewerCanAdminister": false,
-      }
-    }
+    campaignID="c"
     campaignUpdates="[Subject]"
     changesetUpdates="[Subject]"
     history="[History]"
@@ -305,6 +369,7 @@ exports[`CampaignDetails viewerCanAdminister: false viewing existing 1`] = `
         "logViewEvent": [Function],
       }
     }
+    viewerCanAdminister={false}
   />
 </CampaignDetails>
 `;
@@ -312,13 +377,6 @@ exports[`CampaignDetails viewerCanAdminister: false viewing existing 1`] = `
 exports[`CampaignDetails viewerCanAdminister: true viewing existing 1`] = `
 <CampaignDetails
   _fetchCampaignById={[Function]}
-  authenticatedUser={
-    Object {
-      "avatarURL": null,
-      "id": "a",
-      "username": "alice",
-    }
-  }
   campaignID="c"
   history="[History]"
   isLightTheme={true}
@@ -424,58 +482,232 @@ exports[`CampaignDetails viewerCanAdminister: true viewing existing 1`] = `
       </div>
     </div>
   </CampaignActionsBar>
-  <div
-    className="card mt-2"
+  <CampaignInfoCard
+    author={
+      Object {
+        "username": "alice",
+      }
+    }
+    createdAt="2020-01-01"
+    description="d"
+    history="[History]"
   >
     <div
-      className="card-header"
+      className="card mt-2"
     >
-      <strong>
-        <UserAvatar
-          className="icon-inline"
-          user={
-            Object {
-              "username": "alice",
-            }
-          }
-        />
-         
-        alice
-      </strong>
-       
-      started 
-      <Timestamp
-        date="2020-01-01"
+      <div
+        className="card-header"
       >
-        <span
-          className="timestamp"
-          data-tooltip="2020-01-01"
+        <strong>
+          <UserAvatar
+            className="icon-inline"
+            user={
+              Object {
+                "username": "alice",
+              }
+            }
+          />
+           
+          alice
+        </strong>
+         
+        started 
+        <Timestamp
+          date="2020-01-01"
         >
-          in almost 14 years
-        </span>
-      </Timestamp>
-    </div>
-    <div
-      className="card-body"
-    >
-      <Markdown
-        dangerousInnerHTML="<p>d</p>
+          <span
+            className="timestamp"
+            data-tooltip="2020-01-01"
+          >
+            in almost 14 years
+          </span>
+        </Timestamp>
+      </div>
+      <div
+        className="card-body"
+      >
+        <Markdown
+          dangerousInnerHTML="<p>d</p>
 "
-        history="[History]"
+          history="[History]"
+        >
+          <div
+            className="markdown"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>d</p>
+",
+              }
+            }
+            onClick={[Function]}
+          />
+        </Markdown>
+      </div>
+    </div>
+  </CampaignInfoCard>
+  <CampaignStatsCard
+    stats={
+      Object {
+        "closed": 0,
+        "merged": 0,
+        "total": 10,
+      }
+    }
+  >
+    <div
+      className="card mt-2"
+    >
+      <div
+        className="card-body"
       >
         <div
-          className="markdown"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "<p>d</p>
-",
-            }
-          }
-          onClick={[Function]}
-        />
-      </Markdown>
+          className="d-flex justify-content-between align-items-center"
+        >
+          <div
+            className="d-flex align-items-center"
+          >
+            <h1
+              className="d-inline mb-0"
+            >
+              <Memo(ProgressCheckIcon)
+                className="icon-inline mr-2 text-muted"
+              >
+                <svg
+                  className="mdi-icon icon-inline mr-2 text-muted"
+                  fill="currentColor"
+                  height={24}
+                  viewBox="0 0 24 24"
+                  width={24}
+                >
+                  <path
+                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M15.5,8.5L10.62,13.38L8.5,11.26L7.44,12.32L10.62,15.5L16.56,9.56L15.5,8.5M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37Z"
+                  />
+                </svg>
+              </Memo(ProgressCheckIcon)>
+            </h1>
+             
+            0
+            % complete
+          </div>
+          <div
+            className="text-muted"
+          >
+            10
+             changesets total
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceBranchIcon)
+              className="icon-inline text-muted mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-muted mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z"
+                />
+              </svg>
+            </Memo(SourceBranchIcon)>
+             
+             unpublished
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceBranchIcon)
+              className="icon-inline text-success mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-success mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z"
+                />
+              </svg>
+            </Memo(SourceBranchIcon)>
+             
+             open
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceMergeIcon)
+              className="icon-inline text-merged mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-merged mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M7,3A3,3 0 0,1 10,6C10,7.29 9.19,8.39 8.04,8.81C8.58,13.81 13.08,14.77 15.19,14.96C15.61,13.81 16.71,13 18,13A3,3 0 0,1 21,16A3,3 0 0,1 18,19C16.69,19 15.57,18.16 15.16,17C10.91,16.8 9.44,15.19 8,13.39V15.17C9.17,15.58 10,16.69 10,18A3,3 0 0,1 7,21A3,3 0 0,1 4,18C4,16.69 4.83,15.58 6,15.17V8.83C4.83,8.42 4,7.31 4,6A3,3 0 0,1 7,3M7,5A1,1 0 0,0 6,6A1,1 0 0,0 7,7A1,1 0 0,0 8,6A1,1 0 0,0 7,5M7,17A1,1 0 0,0 6,18A1,1 0 0,0 7,19A1,1 0 0,0 8,18A1,1 0 0,0 7,17M18,15A1,1 0 0,0 17,16A1,1 0 0,0 18,17A1,1 0 0,0 19,16A1,1 0 0,0 18,15Z"
+                />
+              </svg>
+            </Memo(SourceMergeIcon)>
+             
+            0
+             merged
+          </div>
+          <div
+            className="d-flex align-items-center"
+          >
+            <Memo(SourceBranchIcon)
+              className="icon-inline text-danger mr-2"
+            >
+              <svg
+                className="mdi-icon icon-inline text-danger mr-2"
+                fill="currentColor"
+                height={24}
+                viewBox="0 0 24 24"
+                width={24}
+              >
+                <path
+                  d="M13,14C9.64,14 8.54,15.35 8.18,16.24C9.25,16.7 10,17.76 10,19A3,3 0 0,1 7,22A3,3 0 0,1 4,19C4,17.69 4.83,16.58 6,16.17V7.83C4.83,7.42 4,6.31 4,5A3,3 0 0,1 7,2A3,3 0 0,1 10,5C10,6.31 9.17,7.42 8,7.83V13.12C8.88,12.47 10.16,12 12,12C14.67,12 15.56,10.66 15.85,9.77C14.77,9.32 14,8.25 14,7A3,3 0 0,1 17,4A3,3 0 0,1 20,7C20,8.34 19.12,9.5 17.91,9.86C17.65,11.29 16.68,14 13,14M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M7,4A1,1 0 0,0 6,5A1,1 0 0,0 7,6A1,1 0 0,0 8,5A1,1 0 0,0 7,4M17,6A1,1 0 0,0 16,7A1,1 0 0,0 17,8A1,1 0 0,0 18,7A1,1 0 0,0 17,6Z"
+                />
+              </svg>
+            </Memo(SourceBranchIcon)>
+             
+            0
+             closed
+          </div>
+          <div>
+            <button
+              className="btn btn-outline-secondary mr-2"
+              type="button"
+            >
+              All changesets
+            </button>
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+            >
+              Burndown chart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-footer"
+      >
+        <small
+          className="text-muted"
+        >
+          To add a changeset to this campaign, update the campaign plan or track an existing changeset.
+        </small>
+      </div>
     </div>
-  </div>
+  </CampaignStatsCard>
   <h3
     className="mt-4 mb-2"
   >
@@ -499,38 +731,7 @@ exports[`CampaignDetails viewerCanAdminister: true viewing existing 1`] = `
     Changesets
   </h3>
   <CampaignChangesets
-    campaign={
-      Object {
-        "__typename": "Campaign",
-        "author": Object {
-          "username": "alice",
-        },
-        "branch": "awesome-branch",
-        "changesetCountsOverTime": Array [],
-        "changesets": Object {
-          "stats": Object {
-            "closed": 0,
-            "merged": 0,
-            "total": 10,
-          },
-          "totalCount": 2,
-        },
-        "closedAt": null,
-        "createdAt": "2020-01-01",
-        "description": "d",
-        "diffStat": Object {
-          "__typename": "IDiffStat",
-          "added": 5,
-          "changed": 3,
-          "deleted": 2,
-        },
-        "hasUnpublishedPatches": false,
-        "id": "c",
-        "name": "n",
-        "updatedAt": "2020-01-01",
-        "viewerCanAdminister": true,
-      }
-    }
+    campaignID="c"
     campaignUpdates="[Subject]"
     changesetUpdates="[Subject]"
     history="[History]"
@@ -542,6 +743,7 @@ exports[`CampaignDetails viewerCanAdminister: true viewing existing 1`] = `
         "logViewEvent": [Function],
       }
     }
+    viewerCanAdminister={true}
   />
 </CampaignDetails>
 `;
