@@ -5,7 +5,7 @@ import { Link } from '../../../../../shared/src/components/Link'
 
 interface Props {
     campaign: Pick<GQL.ICampaign, 'name' | 'closedAt' | 'viewerCanAdminister'> & {
-        namespace: Pick<GQL.ICampaign['namespace'], 'displayName'>
+        namespace: Pick<GQL.ICampaign['namespace'], 'namespaceName'>
         changesets: {
             totalCount: GQL.ICampaign['changesets']['totalCount']
             stats: Pick<GQL.ICampaign['changesets']['stats'], 'total' | 'closed' | 'merged'>
@@ -29,7 +29,7 @@ export const CampaignActionsBar: React.FunctionComponent<Props> = ({ campaign })
                 </span>
                 <span className="text-muted d-inline-block mx-1">/</span>
                 <span>
-                    <Link to="/campaigns">{campaign.namespace.displayName}</Link>
+                    <Link to="/campaigns">{campaign.namespace.namespaceName}</Link>
                 </span>
                 <span className="text-muted d-inline-block mx-1">/</span>
                 <span>{campaign.name}</span>

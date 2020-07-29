@@ -22,6 +22,7 @@ import { CampaignStatsCard } from './CampaignStatsCard'
 import { TabsWithURLViewStatePersistence } from '../../../../../shared/src/components/Tabs'
 import SourceBranchIcon from 'mdi-react/SourceBranchIcon'
 import ChartPpfIcon from 'mdi-react/ChartPpfIcon'
+import { CampaignByIDResult } from '../../../graphql-operations'
 
 interface Props extends ThemeProps, ExtensionsControllerProps, PlatformContextProps, TelemetryProps {
     /**
@@ -57,7 +58,7 @@ export const CampaignDetails: React.FunctionComponent<Props> = ({
     /** Retrigger changeset fetching */
     const changesetUpdates = useMemo(() => new Subject<void>(), [])
 
-    const [campaign, setCampaign] = useState<GQL.ICampaign | null>()
+    const [campaign, setCampaign] = useState<NonNullable<CampaignByIDResult['node']> | null>()
 
     useEffect(() => {
         telemetryService.logViewEvent('CampaignDetailsPage')

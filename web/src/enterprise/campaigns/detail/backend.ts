@@ -2,15 +2,10 @@ import { map } from 'rxjs/operators'
 import { dataOrThrowErrors, gql } from '../../../../../shared/src/graphql/graphql'
 import { queryGraphQL, mutateGraphQL } from '../../../backend/graphql'
 import { Observable } from 'rxjs'
-import {
-    Changeset,
-    ID,
-    ICampaign,
-    IChangesetsOnCampaignArguments,
-    IExternalChangeset,
-} from '../../../../../shared/src/graphql/schema'
+import { ID, IChangesetsOnCampaignArguments, IExternalChangeset } from '../../../../../shared/src/graphql/schema'
 import { DiffStatFields, FileDiffFields } from '../../../backend/diff'
-import { Connection, FilteredConnectionQueryArgs } from '../../../components/FilteredConnection'
+import { FilteredConnectionQueryArgs } from '../../../components/FilteredConnection'
+import { CampaignByIDResult, CampaignChangesetsResult } from '../../../graphql-operations'
 
 const campaignFragment = gql`
     fragment CampaignFields on Campaign {
@@ -22,6 +17,9 @@ const campaignFragment = gql`
             username
             avatarURL
         }
+        namespace {
+            namespaceName
+        }
         branch
         createdAt
         updatedAt
@@ -29,6 +27,13 @@ const campaignFragment = gql`
         viewerCanAdminister
         changesets {
             totalCount
+            stats {
+                closed
+                merged
+                open
+                total
+                unpublished
+            }
         }
         # TODO move to separate query and configure from/to
         changesetCountsOverTime {
@@ -48,7 +53,7 @@ const campaignFragment = gql`
     ${DiffStatFields}
 `
 
-export const fetchCampaignById = (campaign: ID): Observable<ICampaign | null> =>
+export const fetchCampaignById = (campaign: ID): Observable<CampaignByIDResult['node'] | null> =>
     queryGraphQL(
         gql`
             query CampaignByID($campaign: ID!) {
@@ -78,7 +83,7 @@ export const fetchCampaignById = (campaign: ID): Observable<ICampaign | null> =>
 export const queryChangesets = (
     campaign: ID,
     { first, externalState, reviewState, checkState }: IChangesetsOnCampaignArguments
-): Observable<Connection<Changeset>> =>
+): Observable<NonNullable<CampaignChangesetsResult['node']>['changesets']> =>
     queryGraphQL(
         gql`
             query CampaignChangesets(
